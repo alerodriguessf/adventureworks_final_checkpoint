@@ -124,7 +124,7 @@ dbt test
 
 **4. Modelagem Preditiva (Checkpoint 5):**
 
-* Executar o notebook `Checkpoint5_Adventure_Works_LH.ipynb`.
+* Executar o notebook `Checkpoint5_Modelo_Predição_20250906_Adventure Works_LH`.
 * Ele gera previsões, análises de sazonalidade e estimativas de insumos.
 
 ### 3.7 Orquestração no Databricks (YAML — **import & run**)
