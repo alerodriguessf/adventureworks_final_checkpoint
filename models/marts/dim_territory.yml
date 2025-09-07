@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_territory
+    description: "Dimensão de territórios de vendas, baseada na staging stg_sales_territory"
+    tests:
+      - unique:
+          column_name: territory_id
+    Columns:
+      - name: territory_id
+        description: "ID do território de vendas"
+      - name: territory_name
+        description: "Nome do território de vendas"
+      - name: country_region_code
+        description: "Código da região do país"
+      - name: territory_group
+        description: "Grupo do território de vendas"

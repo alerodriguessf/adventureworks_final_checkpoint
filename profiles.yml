@@ -3,9 +3,9 @@ dbt_checkpoint3_dw:
   outputs:
     dev:
       type: databricks
-      catalog: "{{ var('DATABRICKS_CATALOG') }}"
+      catalog: "{{ env_var('DATABRICKS_CATALOG') }}"
       schema: "db"
-      host: "{{ var('DATABRICKS_HOST') }}"
-      http_path: "{{ var('DATABRICKS_HTTP_PATH') }}"
-      token: "{{ var('DATABRICKS_TOKEN') }}"
+      host: "{{ env_var('DATABRICKS_HOST') }}"
+      http_path: "{{ env_var('DATABRICKS_HTTP_PATH') }}"
+      token: "{{ env_var('DATABRICKS_TOKEN') }}"
       threads: 4

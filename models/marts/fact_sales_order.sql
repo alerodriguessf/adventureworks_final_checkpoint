@@ -42,11 +42,19 @@ joined as (
         , od.unit_price_discount
         , od.line_total
 
-        -- Valor convertido para USD usando average_rate
-        , (od.unit_price * cr.average_rate) as unit_price_usd
+        -- Valor convertido para USD (se tiver currency_rate, multiplica; se não, já está em USD)
+        , case 
+            when oh.currency_rate_id is not null 
+                 then od.unit_price * cr.average_rate
+            else od.unit_price
+          end as unit_price_usd
 
-        -- Receita bruta ajustada em USD
-        , (od.order_quantity * (od.unit_price * cr.average_rate) * (1 - od.unit_price_discount)) as gross_revenue_usd
+        -- Receita bruta ajustada em USD (segue mesma lógica)
+        , case 
+            when oh.currency_rate_id is not null 
+                 then od.order_quantity * (od.unit_price * cr.average_rate) * (1 - od.unit_price_discount)
+            else od.order_quantity * od.unit_price * (1 - od.unit_price_discount)
+          end as gross_revenue_usd
 
         -- Receita bruta ajustada original (sem considerar impostos ou frete)
         , (od.order_quantity * od.unit_price * (1 - od.unit_price_discount)) as gross_revenue

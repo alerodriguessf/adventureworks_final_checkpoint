@@ -1,0 +1,30 @@
+version: 2
+
+models:
+  - name: dim_sales_store
+    description: "Dimensão com informações das lojas de vendas, baseada na staging stg_sales_storewithaddresses"
+    tests:
+      - unique:
+          column_name: business_entity_id
+      - not_null:
+          column_name: business_entity_id
+    Columns:
+      - name: business_entity_id
+        description: "ID da entidade comercial da loja" 
+      - name: store_name
+        description: "Nome da loja"
+      - name: address_type
+        description: "Tipo de endereço (ex: Billing, Shipping)"
+      - name: address_line_1
+        description: "Linha 1 do endereço"
+      - name: address_line_2
+        description: "Linha 2 do endereço"
+      - name: city
+        description: "Cidade do endereço"
+      - name: state_province_name
+        description: "Nome do estado ou província"
+      - name: postal_code
+        description: "Código postal do endereço"
+      - name: country_region_name
+        description: "Nome do país ou região"
+  

@@ -3,8 +3,8 @@ version: 2
 
 sources:
   - name: databricks_dw_aw
-    database: "{{ var('DATABRICKS_CATALOG') }}"
-    schema: "{{ var('DATABRICKS_SCHEMA_RAW') }}"
+    database: "{{ env_var('DATABRICKS_CATALOG') }}"
+    schema: "{{ env_var('DATABRICKS_SCHEMA_RAW') }}"
     tables:
       - name: raw_sqlserver_sales_salesorderdetail_db
         loaded_at_field: ModifiedDate

@@ -1,0 +1,28 @@
+version: 2
+
+models:
+  - name: fact_demand_forecast_weekly
+    description: "Tabela reune os dados que iram alimentar o modelo de ML de previsão de demanda semanal."
+    columns:
+      - name: demand_forecast_weekly_id
+        description: "Chave primária da tabela de fatos de previsão de demanda semanal."
+
+      - name: product_id
+        description: "Chave estrangeira referenciando a dimensão de produtos."
+
+      - name: store_id
+        description: "Chave estrangeira referenciando a dimensão de lojas."
+
+      - name: week_start_date
+        description: "Data de início da semana para a qual a previsão é feita."
+
+      - name: forecasted_quantity
+        description: "Quantidade prevista para a semana."
+
+      - name: created_at
+        description: "Timestamp indicando quando o registro foi criado."
+
+      - name: updated_at
+        description: "Timestamp indicando quando o registro foi atualizado pela última vez."
+
+   

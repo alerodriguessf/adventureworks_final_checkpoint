@@ -1,0 +1,69 @@
+resources:
+  jobs:
+    pipeline_checkpoint3:
+      name: pipeline_checkpoint3
+      trigger:
+        pause_status: UNPAUSED
+        periodic:
+          interval: 1
+          unit: DAYS
+      tasks:
+        - task_key: dbt_run
+          depends_on:
+            - task_key: delta_conversion_api
+            - task_key: delta_conversion_sqlserver
+          dbt_task:
+            project_directory: /Workspace/Users/alerodriguessf@gmail.com/lighthouse_desafio03_alexandrersf
+            commands:
+              - >
+                dbt deps --vars
+                '{"DATABRICKS_CATALOG":"{{job.parameters.DATABRICKS_CATALOG}}", 
+                                  "DATABRICKS_SCHEMA_RAW":"{{job.parameters.DATABRICKS_SCHEMA_RAW}}", 
+                                  "DATABRICKS_SCHEMA_STAGING":"{{job.parameters.DATABRICKS_SCHEMA_STAGING}}", 
+                                  "DATABRICKS_SCHEMA_MARTS":"{{job.parameters.DATABRICKS_SCHEMA_MARTS}}", 
+                                  "DATABRICKS_VOLUME":"{{job.parameters.DATABRICKS_VOLUME}}"}'
+              - >
+                dbt run --vars
+                '{"DATABRICKS_CATALOG":"{{job.parameters.DATABRICKS_CATALOG}}", 
+                                "DATABRICKS_SCHEMA_RAW":"{{job.parameters.DATABRICKS_SCHEMA_RAW}}", 
+                                "DATABRICKS_SCHEMA_STAGING":"{{job.parameters.DATABRICKS_SCHEMA_STAGING}}", 
+                                "DATABRICKS_SCHEMA_MARTS":"{{job.parameters.DATABRICKS_SCHEMA_MARTS}}", 
+                                "DATABRICKS_VOLUME":"{{job.parameters.DATABRICKS_VOLUME}}"}'
+            warehouse_id: e9fc9bad6a55f558
+            catalog: ted_dev
+            source: WORKSPACE
+          environment_key: dbt-default
+        - task_key: delta_conversion_api
+          notebook_task:
+            notebook_path: /Workspace/Users/alerodriguessf@gmail.com/checkpoint_lighthouse/delta
+              conversion_api_checkpoint2_alexandrersf
+            source: WORKSPACE
+        - task_key: delta_conversion_sqlserver
+          notebook_task:
+            notebook_path: /Workspace/Users/alerodriguessf@gmail.com/checkpoint_lighthouse/delta
+              conversion_sqlserver_checkpoint2_alexandrersf
+            source: WORKSPACE
+      git_source:
+        git_url: https://github.com/alerodriguessf/lighthouse_desafio03_alexandrersf-
+        git_provider: gitHub
+        git_branch: main
+      queue:
+        enabled: true
+      parameters:
+        - name: DATABRICKS_CATALOG
+          default: ted_dev
+        - name: DATABRICKS_SCHEMA_MARTS
+          default: gold
+        - name: DATABRICKS_SCHEMA_RAW
+          default: bronze
+        - name: DATABRICKS_SCHEMA_STAGING
+          default: silver
+        - name: DATABRICKS_VOLUME
+          default: raw
+      environments:
+        - environment_key: dbt-default
+          spec:
+            client: "2"
+            dependencies:
+              - dbt-databricks>=1.10.4
+      performance_target: PERFORMANCE_OPTIMIZED

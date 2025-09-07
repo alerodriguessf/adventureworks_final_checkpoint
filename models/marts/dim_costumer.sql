@@ -17,6 +17,8 @@ joined as (
     select
         cust.customer_id,
         cust.person_id,
+        cust.store_id,
+        cust.account_number,
         
         -- Nome completo formatado
         concat_ws(' ',

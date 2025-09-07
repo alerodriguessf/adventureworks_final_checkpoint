@@ -1,0 +1,23 @@
+
+version: 2
+
+sources:
+  - name: databricks_dw_aw
+    database: "{{ env_var('DATABRICKS_CATALOG') }}"
+    schema: "{{ env_var('DATABRICKS_SCHEMA_RAW') }}"
+    tables:
+      - name: raw_sqlserver_sales_store_db
+        loaded_at_field: ModifiedDate
+
+models: 
+  - name: stg_sales_store
+    description: "Tabela com a relação de lojas de vendas"
+    Columns:
+      - name: store_name
+        description: "Nome da loja"
+      - name: business_entity_id
+        description: "Identificador único da entidade de negócios"
+      - name: row_guid 
+        description: "Identificador único global"
+      - name: modified_date
+        description: "Data da última modificação do registro"
