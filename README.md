@@ -188,7 +188,7 @@ These insights enable **optimized inventory management, cost reduction, and alig
 ## 👨‍💻 7. Credits
 
 Developed by **Alexandre R. Silva Filho**
-* **LinkedIn:** [linkedin.com/in/alerodriguessf](https://www.linkedin.com/in/alerodriguessf)
+* **LinkedIn:** [linkedin.com/in/alerodriguessf](https://www.linkedin.com/in/alexandrersf/)
 * **GitHub:** [github.com/alerodriguessf](https://github.com/alerodriguessf)
 * **Email:** [alerodriguessf@gmail.com](mailto:alerodriguessf@gmail.com)
 
