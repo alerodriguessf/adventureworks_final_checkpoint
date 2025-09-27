@@ -121,7 +121,7 @@ dbt test
 * Open `.pbix` file and connect to the DW.
 * Daily refresh scheduled at 21:10 UTC.
 
-**4. Predictive Modeling (Checkpoint 5):**
+**4. Predictive Modeling:**
 
 * Run `Checkpoint5_Modelo_Predição_20250906_Adventure Works_LH` notebook.
 * It generates demand forecasts, seasonality analysis, and resource estimates.
@@ -174,7 +174,7 @@ Steps to deploy:
 
 ---
 
-## 📈 6. Business Results (Checkpoint 5)
+## 📈 6. Business Results
 
 * **Demand Forecasting:** 3-month projections per product/store.
 * **Seasonality:** Identified in selected SKUs.
@@ -187,8 +187,7 @@ These insights enable **optimized inventory management, cost reduction, and alig
 
 ## 👨‍💻 7. Credits
 
-Developed by **Alexandre R. Silva Filho** under the **Lighthouse Program – Indicium**.
-
+Developed by **Alexandre R. Silva Filho**
 * **LinkedIn:** [linkedin.com/in/alerodriguessf](https://www.linkedin.com/in/alerodriguessf)
 * **GitHub:** [github.com/alerodriguessf](https://github.com/alerodriguessf)
 * **Email:** [alexandre.filho@indicium.tech](mailto:alexandre.filho@indicium.tech)
