@@ -190,5 +190,5 @@ These insights enable **optimized inventory management, cost reduction, and alig
 Developed by **Alexandre R. Silva Filho**
 * **LinkedIn:** [linkedin.com/in/alerodriguessf](https://www.linkedin.com/in/alerodriguessf)
 * **GitHub:** [github.com/alerodriguessf](https://github.com/alerodriguessf)
-* **Email:** [alexandre.filho@indicium.tech](mailto:alexandre.filho@indicium.tech)
+* **Email:** [alerodriguessf@gmail.com](mailto:alerodriguessf@gmail.com)
 
