@@ -1,17 +1,16 @@
 
-# 🏭 Adventure Works — Pipeline, Analytics & Predictive Modeling (Lighthouse Checkpoints 2–5)
+# 🏭 Adventure Works — Pipeline, Analytics & Predictive Modeling 
 
 ## 📌 1. Project Overview
 
-This repository consolidates the deliverables from **Checkpoints 2, 3, 4, and 5** of the **Lighthouse Program**, applied to the **Adventure Works** dataset.  
 The goal is to implement an **end-to-end data engineering and data science solution** — from ingestion to demand forecasting — delivering strategic business value.
 
 The journey included:
 
-- **Checkpoint 2 – Ingestion:** Data ingestion pipeline from multiple sources (MSSQL + REST API) with **Meltano** and **Docker**.  
-- **Checkpoint 3 – Transformation:** Building a **Data Warehouse** on **Databricks** with **dbt dimensional modeling**.  
-- **Checkpoint 4 – Dashboard:** Developing an interactive **Power BI** dashboard with sales, team, and customer KPIs.  
-- **Checkpoint 5 – Predictive Modeling:** Demand forecasting with regression models, seasonality analysis, regional growth estimation, and resource planning.  
+- **Ingestion:** Data ingestion pipeline from multiple sources (MSSQL + REST API) with **Meltano** and **Docker**.  
+- **Transformation:** Building a **Data Warehouse** on **Databricks** with **dbt dimensional modeling**.  
+- **Dashboard:** Developing an interactive **Power BI** dashboard with sales, team, and customer KPIs.  
+- **Predictive Modeling:** Demand forecasting with regression models, seasonality analysis, regional growth estimation, and resource planning.  
 
 ---
 
@@ -19,21 +18,21 @@ The journey included:
 
 The architecture was designed to be **modular, scalable, and business-oriented**:
 
-1. **Ingestion (Checkpoint 2):**  
+1. **Ingestion:**  
    - **Meltano + Docker** → Extract data from MSSQL and REST API.  
    - **Target-Parquet** → Store data locally in columnar format.  
    - **Databricks CLI** → Upload Parquet files into DBFS.  
 
-2. **Transformation & Modeling (Checkpoint 3):**  
+2. **Transformation & Modeling:**  
    - **Databricks Notebooks** → Convert raw data into **Delta Lake Bronze tables**.  
    - **dbt** → Transform into **Silver (staging)** and **Gold (marts)** layers.  
    - **Testing & Documentation** → Built-in data quality checks and interactive docs.  
 
-3. **Visualization (Checkpoint 4):**  
+3. **Visualization:**  
    - **Power BI** connected to DW (8 core tables: 2 facts + 6 dimensions).  
    - Dashboards for **Sales Overview** and **Sales Team Performance** with KPIs, filters, and benchmarks.  
 
-4. **Predictive Modeling (Checkpoint 5):**  
+4. **Predictive Modeling:**  
    - Regression models for demand forecasting.  
    - Baseline with **moving averages**.  
    - Model comparison using MAE, RMSE, and MAPE.  
